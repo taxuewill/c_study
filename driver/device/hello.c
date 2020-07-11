@@ -20,11 +20,13 @@ static dev_t num_dev;
 struct cdev dev_c;
 struct class *cdev_class;
 
+static int count = 0;
+
 static struct file_operations led_fops={
     .owner=THIS_MODULE,
     .open=test_open,
     .unlocked_ioctl=test_ioctl,
-    //.ioctl=led_ioctl;
+    //.ioctl=test_ioctl;
 };
 
 
@@ -36,7 +38,7 @@ static int test_open(struct inode *inode,struct file *file)
 
 static long test_ioctl(struct file *file,unsigned int cmd,unsigned long arg)
 {
-    printk("test_ioctl cmd=[%d]",cmd);
+    printk("test_ioctl cmd=[%d],count is [%d]",cmd,count++);
     return 0;
 }
 

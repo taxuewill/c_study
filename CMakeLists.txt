@@ -11,3 +11,5 @@ target_link_libraries (test1 ${CMAKE_THREAD_LIBS_INIT})
 add_executable(enum_test src/basic/enum_test.c)
 
 add_executable(open_device src/basic/open_device.c)
+
+add_executable(bool_test src/basic/bool_test.c)

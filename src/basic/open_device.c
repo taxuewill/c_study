@@ -12,6 +12,10 @@ int main(void){
     fd = open(DEVICE_NAME, O_RDWR);
     if(fd>0){
         printf("open dev success\n");
+        
+        if(ioctl(fd,5,NULL)>=0){
+            printf("ioctl success\n");
+        }
     }else{
         printf("open dev failed : %d\n",fd);
         perror("perror output:");
